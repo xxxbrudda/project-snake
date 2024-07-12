@@ -1,10 +1,6 @@
 ﻿#include <iostream>
 #include <stdio.h>
-#include <string>
 #include <windows.h>
-#include <conio.h>
-#include <chrono>
-#include <thread>
 #include <vector>
 using namespace std;
 
@@ -44,11 +40,11 @@ void printBorder(vector<snakeBlock>& Snake)
         SetZero(49, y);
         printf("#");
     }
-    for (int i = 0; i < Snake.size();i++)
-    {
-        SetZero(Snake[i].x, Snake[i].y);
-        cout << "@";
-    }
+ //   for (int i = 0; i < Snake.size();i++)
+   // {
+     //   SetZero(Snake[i].x, Snake[i].y);
+       // cout << "@";
+    //}
 }
 
 snakeBlock snakebuff()
