@@ -40,11 +40,6 @@ void printBorder(vector<snakeBlock>& Snake)
         SetZero(49, y);
         printf("#");
     }
- //   for (int i = 0; i < Snake.size();i++)
-   // {
-     //   SetZero(Snake[i].x, Snake[i].y);
-       // cout << "@";
-    //}
 }
 
 snakeBlock snakebuff()
@@ -66,6 +61,12 @@ void SnakeInit(int x, int y, vector<snakeBlock>& Snake) {
 }
 void SnakePrint(vector<snakeBlock>& Snake) {
 
+    for (int i = 0; i < Snake.size();i++) {
+        SetZero(Snake[i].x, Snake[i].y);
+        cout << " ";
+
+    }
+
     for (int i = 0; i < Snake.size();i++)
     {
         SetZero(Snake[i].x, Snake[i].y);
@@ -76,11 +77,6 @@ void SnakePrint(vector<snakeBlock>& Snake) {
 bool SnakeMove(vector<snakeBlock>& Snake, int moveMass[])
 {
 
-    for (int i = 0; i < Snake.size();i++) {
-        SetZero(Snake[i].x, Snake[i].y);
-        cout << " ";
-
-    }
     Snake[0].x += moveMass[0];
     Snake[0].y += moveMass[1];
     //  printBorder(Snake);
@@ -110,8 +106,7 @@ bool SnakeMove(vector<snakeBlock>& Snake, int moveMass[])
 }
 bool check(vector<snakeBlock>& Snake, snakeBlock apple)
 {
-    //  for (int i = 0; i < Snake.size();i++)
-     // {
+
     if ((Snake[0].x == apple.x) && (Snake[0].y == apple.y))
     {
 
@@ -169,10 +164,9 @@ int main()
 
     }
 
-    if (run == false)
-    {
+
         system("cls");
         cout << ".................................................................Game....Over.........................................................................";
 
-    }
+
 }
