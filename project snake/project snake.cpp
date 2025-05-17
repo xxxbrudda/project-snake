@@ -59,28 +59,58 @@ void SnakeInit(int x, int y, vector<snakeBlock>& Snake) {
     newSnake.y = y;
     Snake.push_back(newSnake);
 }
-void SnakePrint(vector<snakeBlock>& Snake) {
+void SnakePrint(vector<snakeBlock>& Snake, int movemass[]) {
+
+
+    int oldx = Snake[0].x;
+    int oldy = Snake[0].y;
 
     for (int i = 0; i < Snake.size();i++) {
+
         SetZero(Snake[i].x, Snake[i].y);
         cout << " ";
 
     }
+    //  printBorder(Snake);
 
+    Snake[0].x += movemass[0];
+    Snake[0].y += movemass[1];
+
+
+    int j = 0;
+    /*int j = Snake.size();*/
     for (int i = 0; i < Snake.size();i++)
     {
+        if (i > 0)
+        {
+            
+
+            if ((Snake[i].x == oldx) && (Snake[i].y == oldy))
+            {
+                Snake[i].x += movemass[0];
+                Snake[i].y += movemass[1];
+
+            }
+            else
+            {
+                Snake[i].x = oldx + j;
+                Snake[i].y = oldy + j;
+                j++;
+            }
+        }
+
+
         SetZero(Snake[i].x, Snake[i].y);
         cout << "@";
+
     }
 
 }
 bool SnakeMove(vector<snakeBlock>& Snake, int moveMass[])
 {
 
-    Snake[0].x += moveMass[0];
-    Snake[0].y += moveMass[1];
     //  printBorder(Snake);
-    SnakePrint(Snake);
+    SnakePrint(Snake, moveMass);
     if (((Snake[0].x >= 0) && (Snake[0].x <= 50)) && (Snake[0].y == 0))
     {
         system("cls");
@@ -160,7 +190,7 @@ int main()
         }
 
 
-        Sleep(150);
+        Sleep(250);
 
     }
 
